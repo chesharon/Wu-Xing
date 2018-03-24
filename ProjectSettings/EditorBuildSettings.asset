@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Tutorial_Level.unity
+    guid: 738b21148d9720749ba4bd5fdb227a21
+  - enabled: 1
+    path: Assets/Scenes/Water_Level_Outside_Cave.unity
+    guid: d4869961f6ddeea4ca92900029ed1a64
+  - enabled: 1
+    path: Assets/Scenes/Water_Level_Inside_Cave.unity
+    guid: ca084aab3d304994582f387f0d8b1af9
+  - enabled: 1
+    path: Assets/Scenes/Persistent.unity
+    guid: 1e9bf9750d216374ab3e1f90bfa8464e
+  - enabled: 1
+    path: Assets/Scenes/Fire_Level.unity
+    guid: 2511e90d85a1309448fe8e3680df9ec1

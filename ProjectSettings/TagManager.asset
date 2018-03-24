@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Button
+  - UI
+  - Object
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Background
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1947687231
+    locked: 0
+  - name: Behind Background Objects
+    uniqueID: 1514695791
+    locked: 0
+  - name: Background Objects
+    uniqueID: 3864618471
+    locked: 0
+  - name: Objects
+    uniqueID: 716120855
+    locked: 0
+  - name: Characters
+    uniqueID: 2903326965
+    locked: 0
+  - name: PlatformBehind
+    uniqueID: 3364440497
+    locked: 0
+  - name: Player
+    uniqueID: 2354583755
+    locked: 0
+  - name: PlatformInFront
+    uniqueID: 2244007955
+    locked: 0
+  - name: Interactable
+    uniqueID: 3758389045
+    locked: 0
+  - name: Ground
+    uniqueID: 2077769155
+    locked: 0
