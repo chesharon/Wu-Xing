@@ -5,29 +5,31 @@ using UnityEngine;
 
 public class LadderPress : InteractableObject {
 
+    public float topElevation, bottomElevation;
+    public float climbTime;
+
+    //Animator anim;
+    //Rigidbody2D playerRigidBody;
+
     [SerializeField]
     private Collider2D platformCollider;
 
-    private float climbSpeed = 3f;
-    //Animator anim;
     private PlayerMovement playerMovementsScript;
-    //Rigidbody2D playerRigidBody;
+    private float climbSpeed = 3f;
     private bool isClimbing = false;
     private bool playerWithinDist = false;
     private bool isUp = true;
-    public float topElevation, bottomElevation;
-    public float climbTime;
 
     // Use this for initialization
     void Start () {
         //anim = GetComponent<Animator>();
-        playerMovementsScript = GameObject.Find("Player").GetComponent<PlayerMovement>();
         //playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        playerMovementsScript = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 	
 	// Update is called once per frame
-	void Update () {
-	    if (isClimbing == true) {
+    void Update () {
+        if (isClimbing == true) {
             if (isUp) {
                 playerMovementsScript.Climb(climbSpeed * Time.deltaTime);
                 isClimbing = playerMovementsScript.getY() <= topElevation;
@@ -42,7 +44,7 @@ public class LadderPress : InteractableObject {
                 }
             }
         }
-	}
+    }
 
     /*void OnMouseDown() {
         if (playerWithinDist == true) {
@@ -64,7 +66,6 @@ public class LadderPress : InteractableObject {
             isClimbing = !isClimbing;
             playerMovementsScript.toggleRigidBody();
             playerMovementsScript.SetAnimation(3, time: climbTime);
-            Debug.Log("CALLING CLICKEVENT");
         }
     }
 
@@ -72,30 +73,29 @@ public class LadderPress : InteractableObject {
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
+    void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             playerWithinDist = true;
             //Physics2D.IgnoreCollision(other.GetComponent<Collider2D>(), platformCollider, false);
         }
     }
 
-    //void OnTriggerStay2D(Collider2D other) {
-    //    /*if (other.CompareTag("Player") && /*pressed == true*/ other.transform.position.y < -1.0f) {
-    //        other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, climbSpeed);
-    //    }
-    //   if (other.CompareTag("Player") && /*pressed == false*/ other.transform.position.y > -1.0f) {
-    //        other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -climbSpeed);
-    //    }
-    //    //Physics2D.IgnoreCollision(other.GetComponent<Collider2D>(), platformCollider, false);
-    //}
+    /*void OnTriggerStay2D(Collider2D other) {
+        if (other.CompareTag("Player") && other.transform.position.y < -1.0f) {
+            other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, climbSpeed);
+        }
+       if (other.CompareTag("Player") && other.transform.position.y > -1.0f) {
+            other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -climbSpeed);
+        }
+        //Physics2D.IgnoreCollision(other.GetComponent<Collider2D>(), platformCollider, false);
+    }*/
 
-    void OnTriggerExit2D(Collider2D other)
-    {
+    void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             isClimbing = false;
             playerWithinDist = false;
             //Physics2D.IgnoreCollision(other.GetComponent<Collider2D>(), platformCollider, false);
         }
     }
+
 }

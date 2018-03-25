@@ -10,6 +10,7 @@ public class FreeBunny : InteractableObject {
 
     PlayerMovement playerMovementScript;
     PersistentData persistentDataScript;
+
     private Animator anim;
     private Inventory inventory;
     private bool playerWithinDist = false;
@@ -20,12 +21,11 @@ public class FreeBunny : InteractableObject {
     private float speed = 2.0f;
     private Vector3 randTargetPos;
 
-
     // Use this for initialization
     void Start () {
         inventory = FindObjectOfType<Inventory>();
-        persistentDataScript = GameObject.Find("PersistentData").GetComponent<PersistentData>();
         anim = GetComponent<Animator>();
+        persistentDataScript = GameObject.Find("PersistentData").GetComponent<PersistentData>();
         playerMovementScript = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
@@ -41,7 +41,7 @@ public class FreeBunny : InteractableObject {
             transform.position = persistentDataScript.bunnyLastPos;
             Move();
         }
-	}
+    }
 
     public void Move() {
         if (persistentDataScript.bunnyRandTargetPos.x < transform.position.x && facingRight) {
@@ -54,15 +54,16 @@ public class FreeBunny : InteractableObject {
             transform.position = Vector3.MoveTowards(transform.position, persistentDataScript.bunnyRandTargetPos, speed * Time.deltaTime);
             persistentDataScript.bunnyLastPos = transform.position;
             if (transform.position != persistentDataScript.bunnyRandTargetPos) {
-                anim.SetInteger("AnimState", 1); }
-            else {
+                anim.SetInteger("AnimState", 1);
+            } else {
                 anim.SetInteger("AnimState", 2);
             }
-        }  else {
+        } else {
             t = 0.0f;
             persistentDataScript.bunnyRandTargetPos = new Vector3(Random.Range(-11.0f, 11.0f), transform.position.y, 0.0f);
         }
     }
+
     public override void ClickEvent() {
         if (inventory == null) {
             inventory = FindObjectOfType<Inventory>();
@@ -77,7 +78,6 @@ public class FreeBunny : InteractableObject {
             persistentDataScript.freedBunny = true;
         } else if (playerWithinDist && persistentDataScript.freedBunny) {
             if (carrot.isCollected) {
-                Debug.Log("carrot is collected: " + carrot.isCollected);
                 persistentDataScript.collectedCarrot = true;
                 inventory.RemoveItem(carrot);
                 if (!inventory.IsFull()) {

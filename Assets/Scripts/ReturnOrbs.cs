@@ -7,6 +7,7 @@ public class ReturnOrbs : InteractableObject {
 
     public GameObject behindScreen;
     public Sprite[] orbs;
+
     PersistentData persistentDataScript;
 
     // Use this for initialization
@@ -21,7 +22,6 @@ public class ReturnOrbs : InteractableObject {
     }
 
     public override void ClickEvent() {
-        Debug.Log(persistentDataScript.TotalOrbs());
         if (persistentDataScript.TotalOrbs() == 1) {
             behindScreen.GetComponent<SpriteRenderer>().sprite = orbs[0];
         } else if (persistentDataScript.TotalOrbs() == 2) {

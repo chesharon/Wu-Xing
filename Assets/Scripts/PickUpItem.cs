@@ -8,8 +8,10 @@ public class PickUpItem : InteractableObject {
     public Item item;
     public Interactable interactable;
     public int animState;
-    private Inventory inventory;
+
     PlayerMovement playerMovementsScript;
+
+    private Inventory inventory;
 
     // Use this for initialization
     void Start () {

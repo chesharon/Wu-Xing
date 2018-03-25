@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour {
 
     public InteractableObject obj;
+
     private SpriteRenderer sprite;
     private bool isInteractable = true;
 
@@ -16,8 +17,8 @@ public class Interactable : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        
+    }
 
     public InteractableObject getObject() {
         return obj;
@@ -49,4 +50,5 @@ public class Interactable : MonoBehaviour {
             sprite.enabled = false;
         }
     }
+
 }

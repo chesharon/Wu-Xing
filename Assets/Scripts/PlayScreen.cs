@@ -8,14 +8,16 @@ public class PlayScreen : MonoBehaviour {
     public AudioClip clip;
     public GameObject behindScreen;
     public Sprite orbs;
+
+    PersistentData persistentDataScript;
+
     private Animator anim;
     private bool animSet = false;
     private bool move = false;
     private Vector2 startPosition;
     private Vector2 target;
-    float t;
-    float timeToReachTarget;
-    PersistentData persistentDataScript;
+    private float t;
+    private float timeToReachTarget;
 
     // Use this for initialization
     void Start() {
@@ -35,8 +37,7 @@ public class PlayScreen : MonoBehaviour {
         }
     }
 
-    public void SetAnimation(bool state)
-    {
+    public void SetAnimation(bool state) {
         anim.SetBool("Play", state);
         animSet = true;
     }
@@ -47,8 +48,7 @@ public class PlayScreen : MonoBehaviour {
         timeToReachTarget = time;
         if (direction == 0) {
             target = new Vector2(-7.09f, tf.position.y);
-        }
-        else {
+        } else {
             target = new Vector2(-0.39f, tf.position.y);
         }
     }

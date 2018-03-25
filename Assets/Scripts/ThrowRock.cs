@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ThrowRock : InteractableObject {
 
-    PlayerMovement playerMovementsScript;
-    PersistentData persistentDataScript;
     public Item item;
     public Interactable interactable;
     public Interactable farmerInteractable;
@@ -13,19 +11,22 @@ public class ThrowRock : InteractableObject {
     public GameObject target;
     public Animator animator;
 
+    PlayerMovement playerMovementsScript;
+    PersistentData persistentDataScript;
+
     [SerializeField]
     private Collider2D collider;
     [SerializeField]
     private Collider2D farmerCollider;
 
     private Inventory inventory;
+    private bool canThrow = false;
+    private Vector3 lastPos;
     private float angle = 45.0f;
     private float gravity = 9.8f;
     private float movementTime = 0.95f;
     private float speed = 10.0f;
     private float t = 0.0f;
-    private bool canThrow = false;
-    private Vector3 lastPos;
 
     // Use this for initialization
     void Start () {
@@ -49,7 +50,7 @@ public class ThrowRock : InteractableObject {
             interactable.setInteractable(false);
             canThrow = false;
         }
-		else if (canThrow) {
+        else if (canThrow) {
             if (collider) {
                 collider.enabled = false;
             }
@@ -63,8 +64,7 @@ public class ThrowRock : InteractableObject {
                 float randRot = Random.Range(0.8f, 1.2f);
                 transform.Rotate(0.0f, 0.0f, randRot);
                 persistentDataScript.rockRotation = randRot;
-            }
-            else {
+            } else {
                 if (t <= movementTime + 0.45f) {
                     Vector3 targetPos = target.transform.position + new Vector3(Random.Range(-1.30f, -1.20f), -1.1f, 0.0f);
                     transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
@@ -76,7 +76,7 @@ public class ThrowRock : InteractableObject {
                 } 
             }
         }
-	}
+    }
 
     public override void ClickEvent() {
         if (inventory == null) {

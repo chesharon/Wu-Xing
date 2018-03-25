@@ -2,8 +2,8 @@
 using UnityEditor;
 
 [CustomEditor(typeof(Inventory))]
-public class InventoryEditor : Editor
-{
+public class InventoryEditor : Editor {
+
     private bool[] showItemSlots = new bool[Inventory.numItemSlots];
     private SerializedProperty itemImagesProperty;
     private SerializedProperty itemsProperty;
@@ -35,4 +35,5 @@ public class InventoryEditor : Editor
         EditorGUI.indentLevel--;
         EditorGUILayout.EndVertical();
     }
+
 }

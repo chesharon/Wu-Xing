@@ -5,16 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class TriggerNextLevel : InteractableObject {
 
-    public string currentSceneName;
     public GameObject child;
     public GameObject cave;
+    public string currentSceneName;
     public float xPos, yPos;
+
+    PlayerMovement playerMovementsScript;
+    PersistentData persistentDataScript;
+
     private Inventory inventory;
     private string nextSceneName = null;
     private bool playerWithinDist = false;
-    PlayerMovement playerMovementsScript;
-    PersistentData persistentDataScript;
-    float t = 0.0f;
+    private float t = 0.0f;
 
     // Use this for initialization
     void Start () {
@@ -28,7 +30,6 @@ public class TriggerNextLevel : InteractableObject {
     IEnumerator Wait() {
         yield return new WaitForSeconds(5);
     }
-
 
     // Update is called once per frame
     void Update () {
@@ -63,16 +64,11 @@ public class TriggerNextLevel : InteractableObject {
 
             if (persistentDataScript.currentScene == "Tutorial_Level" && persistentDataScript.backToTutorial == false) {
                 persistentDataScript.currentScene = nextSceneName = "Water_Level_Outside_Cave";
-                //persistentDataScript.currentScene = nextSceneName = "Fire_Level";
-                //nextSceneName = "Fire_Level";
-            }
-            else if (persistentDataScript.currentScene == "Water_Level_Inside_Cave" && this.gameObject == cave) {
+            } else if (persistentDataScript.currentScene == "Water_Level_Inside_Cave" && this.gameObject == cave) {
                 persistentDataScript.currentScene = nextSceneName = "Water_Level_Outside_Cave";
-            }
-            else if (persistentDataScript.currentScene == "Water_Level_Outside_Cave" && this.gameObject == cave) {
+            } else if (persistentDataScript.currentScene == "Water_Level_Outside_Cave" && this.gameObject == cave) {
                 persistentDataScript.currentScene = nextSceneName = "Water_Level_Inside_Cave";
-            }
-            else if (persistentDataScript.collectedBunny && this.gameObject == child) {
+            } else if (persistentDataScript.collectedBunny && this.gameObject == child) {
                 persistentDataScript.currentScene = nextSceneName = "Fire_Level";
                 inventory.ClearInventory();
                 persistentDataScript.AddOrbs("Water");
@@ -100,4 +96,5 @@ public class TriggerNextLevel : InteractableObject {
             playerWithinDist = false;
         }
     }
+
 }

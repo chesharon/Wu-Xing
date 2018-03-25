@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
-{
+public class UIManager : MonoBehaviour {
+
     public void Start() {
         StartCoroutine(Loader());
     }
@@ -14,4 +14,5 @@ public class UIManager : MonoBehaviour
         GameObject uiRoot = GameObject.FindGameObjectWithTag("UI");
         DontDestroyOnLoad(uiRoot);
     }
+
 }

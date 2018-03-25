@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
+    public const int numItemSlots = 4;
     public Image[] itemImages = new Image[numItemSlots];
     public Item[] items = new Item[numItemSlots];
-
-    public const int numItemSlots = 4;
 
     public void AddItem(Item itemToAdd) {
         for (int i = 0; i < items.Length; i++) {
@@ -34,10 +33,8 @@ public class Inventory : MonoBehaviour {
 
     public Item PeekFirstItem() {
         Item item = null;
-        for (int i = 0; i < items.Length; i++)
-        {
-            if (items[i] != null && items[i].isFood)
-            {
+        for (int i = 0; i < items.Length; i++) {
+            if (items[i] != null && items[i].isFood) {
                 item = items[i];
                 break;
             }
@@ -58,7 +55,7 @@ public class Inventory : MonoBehaviour {
     }
 
     public void ClearInventory() {
-        for (int i = 0; i < items.Length; i++){
+        for (int i = 0; i < items.Length; i++) {
             items[i] = null;
             itemImages[i].sprite = null;
             itemImages[i].enabled = false;
@@ -77,8 +74,9 @@ public class Inventory : MonoBehaviour {
 
     public bool IsEmpty() {
         for (int i = 0; i < items.Length; i++) {
-            if (items[i] != null)
+            if (items[i] != null) {
                 return false;
+            }
         }
 
         return true;

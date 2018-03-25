@@ -8,14 +8,13 @@ public class FeedCustomer : InteractableObject
     public Sprite[] Eat;
     public Sprite[] Point;
     public Sprite[] Angry;
-    /*public Sprite Eat_2;
-    public Sprite Eat_3;
-    public Sprite Eat_4;*/
     public int animState;
-    private Inventory inventory;
-    private int foodCount = 0;
+
     PlayerMovement playerMovementsScript;
     PersistentData persistentDataScript;
+
+    private Inventory inventory;
+    private int foodCount = 0;
 
     // Use this for initialization
     void Start() {

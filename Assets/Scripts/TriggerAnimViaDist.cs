@@ -9,13 +9,13 @@ public class TriggerAnimViaDist : InteractableObject {
     private bool playerWithinDist = false;
     private float t = 0.0f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         anim = GetComponent<Animator>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+    
+    // Update is called once per frame
+    void Update () {
 
     }
 
@@ -42,4 +42,5 @@ public class TriggerAnimViaDist : InteractableObject {
             anim.SetInteger("AnimState", 0);
         }
     }
+
 }

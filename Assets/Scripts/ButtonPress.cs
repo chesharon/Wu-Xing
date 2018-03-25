@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class ButtonPress : InteractableObject {
 
-    Animator anim;
     public Interactable teleportationStone;
+    public AudioClip audioClip;
+
+    Animator anim;
     PersistentData persistentDataScript;
     PlayerMovement playerMovementsScript;
     PlayScreen screenScript;
-    public AudioClip audioClip;
-    bool pressed = false;
-    bool playerWithinDist = false;
+
+    private bool pressed = false;
+    private bool playerWithinDist = false;
 
     // Use this for initialization
     void Start () {
@@ -36,8 +38,7 @@ public class ButtonPress : InteractableObject {
                 screenScript.Move(0);
                 screenScript.PlaySound();
                 teleportationStone.setInteractable(true);
-            }
-            else {
+            } else {
                 anim.SetBool("Pressed", false);
                 screenScript.SetAnimation(false);
                 PlaySound();
@@ -54,15 +55,13 @@ public class ButtonPress : InteractableObject {
         AudioSource.PlayClipAtPoint(audioClip, transform.position);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
+    void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             playerWithinDist = true;
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
+    void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player"))  {
             playerWithinDist = false;
         }

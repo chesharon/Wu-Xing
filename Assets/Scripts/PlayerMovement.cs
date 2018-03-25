@@ -6,16 +6,17 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float maxSpeed = 3f;
-    bool facingRight = false;
-    float timer = 0.0f;
-    float maxTime;
     public static bool isChangingElevation;
-    private Vector3 targetPosition;
-    bool isMoving = false;
+    public AudioClip[] audioClip;
 
     Animator anim;
     PersistentData persistentDataScript;
-    public AudioClip[] audioClip; //this holds the sounds
+
+    private bool isMoving = false;
+    private bool facingRight = false;
+    private Vector3 targetPosition;
+    private float timer = 0.0f;
+    private float maxTime;
 
     // Use this for initialization
     void Start() {
@@ -55,13 +56,12 @@ public class PlayerMovement : MonoBehaviour
         }*/
 
         if (rigidBody2D.velocity.x != 0) {
-            //if (isMoving) { 
             anim.SetInteger("AnimState", 1);
-
-            if (move > 0 && !facingRight)
+            if (move > 0 && !facingRight) {
                 Flip();
-            else if (move < 0 && facingRight)
+            } else if (move < 0 && facingRight) {
                 Flip();
+            }
         } else {
             if (anim.GetInteger("AnimState") != 0) {
                 if (timer >= maxTime) {
@@ -112,4 +112,5 @@ public class PlayerMovement : MonoBehaviour
             AudioSource.PlayClipAtPoint(audioClip[clip], transform.position);
         }
     }
+
 }

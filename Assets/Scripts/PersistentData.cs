@@ -5,19 +5,20 @@ using UnityEngine;
 public class PersistentData : MonoBehaviour {
 
     public Interactable teleportationStone;
-    private static List<string> orbs = new List<string>();
     public bool collectedCarrot = false;
     public bool collectedBunny = true;
     public bool freedBunny = false;
-    public Vector3 bunnyLastPos;
-    public Vector3 bunnyRandTargetPos;
     public bool threwRockAtFarmer = false;
-    public Vector3 rockLastPos;
-    public float rockRotation;
     public bool cannotMove = false;
     public bool fedBroccoli = false;
     public bool backToTutorial = false;
+    public Vector3 bunnyLastPos;
+    public Vector3 bunnyRandTargetPos;
+    public Vector3 rockLastPos;
+    public float rockRotation;
     public string currentScene = null;
+
+    private static List<string> orbs = new List<string>();
 
     void Awake() {
         DontDestroyOnLoad(this.gameObject);
@@ -28,9 +29,7 @@ public class PersistentData : MonoBehaviour {
     }
 
     public int TotalOrbs() {
-        Debug.Log("ORB COUNT: " + orbs.Count);
         return orbs.Count;
     }
-
 
 }
