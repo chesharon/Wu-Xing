@@ -22,7 +22,7 @@ Tutorial
 ![Tutorial Level](../master/Images/Tutorial_Level.PNG)
 
 Water
-![Water Level](../master/Imagse/Water_Level_Outside_Cave.PNG)
+![Water Level](../master/Images/Water_Level_Outside_Cave.PNG)
 ![Water Level](../master/Images/Water_Level_Inside_Cave.PNG)
 
 Fire
