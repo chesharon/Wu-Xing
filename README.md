@@ -19,11 +19,11 @@ Unity2D was used to create this game.
 Three of the intended six levels have been completed.
 
 Tutorial
-![Tutorial Level](../master/Images/Tutorial_Level.png)
+![Tutorial Level](../master/Images/Tutorial_Level.PNG)
 
 Water
-![Water Level](../master/Imagse/Water_Level_Outside_Cave.png)
-![Water Level](../master/Images/Water_Level_Inside_Cave.png)
+![Water Level](../master/Imagse/Water_Level_Outside_Cave.PNG)
+![Water Level](../master/Images/Water_Level_Inside_Cave.PNG)
 
 Fire
-![Fire Level](../master/Images/Fire_Level.png)
+![Fire Level](../master/Images/Fire_Level.PNG)
